@@ -58,9 +58,27 @@ python3 -m http.server 8081 --directory dist
 
 ## Author / 作者
 
-Maintained by [haikuang-lin](https://github.com/haikuang-lin). This project explores practical, local-first privacy protection for still images: face detection, human review, and exportable redaction without sending photos to a service.
+Maintained by [Hai-kuang (Ryan) Lin](https://github.com/haikuang-lin).
 
-本專案由 [haikuang-lin](https://github.com/haikuang-lin) 維護，聚焦可實際使用的本機優先照片隱私保護：人臉候選偵測、人工覆核與可匯出的遮蔽結果，不將照片送往服務端。
+Hai-kuang (Ryan) Lin brings nearly three decades of global technology industry leadership spanning the complete value chain—from semiconductor design and silicon intellectual property licensing (NXP, DTS/Xperi) to enterprise servers and systems integration (Sun Microsystems, HP, Compaq, Siemens), industrial automation, and automotive electronics (Advantech, First International Computer). He has served as Greater China and Southeast Asia General Manager and Senior ODM Product Director for global technology leaders.
+
+Currently serving as Chief Information Security Officer for the Taiwan Personal Data Protection Promotion Association, Mr. Lin advises major public and private sector enterprises on privacy, cybersecurity, and artificial intelligence governance. His strategic engagements include:
+
+- Advising on banking core systems supply chain security for formal legislative inquiries before financial regulators.
+- Engaging in direct technical dialogues with U.S. FDA medical device cybersecurity leadership regarding Section 524B compliance and Software Bill of Materials (SBOM).
+- Assisting public agencies and private sector enterprises in achieving national and international privacy trust certifications.
+
+### Academic Background & Professional Certifications
+
+- MBA in Computer Methodology, Baruch College, City University of New York (GMAT Quantitative score in the Top 1% worldwide)
+- B.S. in Computer Science and Information Engineering, Tamkang University
+- ISO/IEC 42001:2023 (Artificial Intelligence Management System) Lead Auditor (SGS)
+- ISO/IEC 27701:2025 (Privacy Information Management System) Lead Auditor (SGS)
+- ISO/IEC 27001:2022 (Information Security Management System) International Lead Auditor
+- Certified Privacy Protection Professional (CPPP), TPIPAS
+- Professional Certifications in Nvidia Generative AI and Google Cybersecurity
+
+本專案聚焦可實際使用的本機優先照片隱私保護：人臉候選偵測、人工覆核與可匯出的遮蔽結果，不將照片送往服務端。
 
 ## 測試紀錄
 
