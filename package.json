@@ -1,0 +1,11 @@
+{
+  "name": "portrait-private-local-l1",
+  "version": "1.1.4",
+  "private": true,
+  "description": "L1 personal offline, browser-local portrait privacy protection for still images.",
+  "scripts": {
+    "start": "python3 -m http.server 8080 --directory dist",
+    "check": "node --check dist/app.js"
+  },
+  "license": "Apache-2.0"
+}

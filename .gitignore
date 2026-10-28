@@ -1,0 +1,16 @@
+.DS_Store
+
+# Python local server and test output
+__pycache__/
+*.py[cod]
+
+# Xcode build products and per-user state
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+
+# Local exports and evidence created while testing photos
+Downloads/
+exports/
+evidence/

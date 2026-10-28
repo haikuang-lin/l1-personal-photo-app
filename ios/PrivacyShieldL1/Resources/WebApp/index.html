@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101a2b" />
+    <meta name="description" content="完全在本機瀏覽器處理照片的人像隱私保護工具。" />
+    <title>影像隱私護罩 L1 個人版</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header><div class="brand"><span aria-hidden="true">◈</span><div><h1>影像隱私護罩 <em>L1 個人版</em></h1><p>照片版・全程在你的裝置上處理</p></div></div><div class="local-badge" title="不會將照片上傳到伺服器">本機處理</div></header>
+    <main>
+      <section id="emptyState" class="drop-zone" aria-labelledby="uploadTitle">
+        <div class="drop-mark" aria-hidden="true">↥</div><h2 id="uploadTitle">選擇一張照片</h2>
+        <p>拖曳 JPEG、PNG 或 WebP 到此處，或從裝置選取。照片只在目前瀏覽器的工作記憶體中處理。</p>
+        <label class="primary-button" for="fileInput">匯入照片</label><input id="fileInput" type="file" accept="image/jpeg,image/png,image/webp" hidden />
+        <p class="quiet">模型已隨 App 附帶；以本機網頁伺服器開啟後可離線使用。</p>
+      </section>
+      <section id="editor" class="editor" hidden>
+        <div class="stage-card">
+          <div class="stage-topline"><span id="imageName">照片</span><span id="detectionStatus" role="status">準備中…</span></div>
+          <div class="canvas-wrap"><canvas id="photoCanvas" aria-label="照片預覽與人臉標記"></canvas></div>
+          <p class="stage-help">每張臉可選「保留」或「遮蔽」。需要額外遮蔽時，按「手動新增」後直接在照片上拖曳範圍。</p><p id="verificationStatus" class="verification" hidden></p>
+        </div>
+        <aside class="control-panel" aria-label="處理選項">
+          <div class="panel-section"><h2>遮蔽方式</h2>
+            <div class="mode-grid" role="radiogroup" aria-label="遮蔽方式"><label><input type="radio" name="mode" value="mosaic" checked /><span>▦<small>馬賽克</small></span></label><label><input type="radio" name="mode" value="block" /><span>■<small>不透明色塊</small></span></label><label><input type="radio" name="mode" value="emoji" /><span>🙂<small>Emoji</small></span></label></div>
+            <label class="field-label" for="emojiSelect">Emoji</label><select id="emojiSelect"><option value="😶">😶 中性臉</option><option value="🕶️">🕶️ 墨鏡</option><option value="😎">😎 酷臉</option><option value="🐱">🐱 貓臉</option><option value="🌼">🌼 花朵</option></select>
+            <label class="field-label" for="blockColor">色塊顏色</label><input id="blockColor" type="color" value="#172033" />
+            <label class="range-row" for="paddingRange"><span>遮蔽邊界</span><output id="paddingOutput">12%</output></label><input id="paddingRange" type="range" min="0" max="35" value="12" />
+          </div>
+          <div class="panel-section region-section"><div class="section-title"><h2>人臉與範圍</h2><button id="maskAllButton" class="text-button" type="button">全部遮蔽</button></div><button id="manualMaskButton" class="secondary-button wide" type="button" aria-pressed="false">手動新增遮蔽範圍</button><p id="noRegions" class="quiet" hidden>尚未找到人臉。可手動新增遮蔽範圍。</p><div id="regionList" class="region-list"></div></div>
+          <div class="panel-section export-section"><h2>匯出與證據</h2><div class="export-row"><label for="formatSelect">格式</label><select id="formatSelect"><option value="image/jpeg">JPEG</option><option value="image/png">PNG</option></select></div><div id="jpegQualityRow" class="export-row"><label for="qualityRange">JPEG 品質</label><input id="qualityRange" type="range" min="70" max="100" value="92" /><output id="qualityOutput">92</output></div><button id="downloadButton" class="primary-button wide" type="button">下載並重新載入驗證</button><button id="reportButton" class="secondary-button wide" type="button" disabled>下載本機 JSON 證據報告</button><button id="newImageButton" class="secondary-button wide" type="button">換一張照片</button><button id="clearSessionButton" class="text-button clear-button" type="button">清除工作階段資料</button></div>
+        </aside>
+      </section>
+      <section class="privacy-note"><h2>隱私與使用限制</h2><p>本工具不含帳號、分析追蹤、雲端上傳、伺服器端 API 或照片持久快取。替換照片或清除工作階段會釋放照片像素、座標、雜湊與報告的 App 參照；模型資源可保留於記憶體供下次使用。瀏覽器與作業系統的底層記憶體無法保證安全抹除。偵測可能漏掉側臉、過小或被遮擋的人臉，請在公開前人工檢查。</p></section>
+    </main>
+    <template id="regionTemplate"><article class="region-card"><canvas class="region-thumb" width="72" height="72" aria-hidden="true"></canvas><div><strong class="region-title"></strong><p class="region-detail"></p></div><div class="region-actions"><button class="keep-button" type="button">保留</button><button class="mask-button" type="button">遮蔽</button><button class="remove-button" type="button">移除</button></div></article></template>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
