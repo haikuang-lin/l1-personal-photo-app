@@ -78,6 +78,15 @@ Currently serving as Chief Information Security Officer for the Taiwan Personal 
 - Certified Privacy Protection Professional (CPPP), TPIPAS
 - Professional Certifications in Nvidia Generative AI and Google Cybersecurity
 
+### 中文作者簡介
+
+**林海光（Ryan Lin）**
+
+- **現任：**社團法人台灣個資保護促進協會資安長、企業數位信任與 AI 治理實務顧問。
+- **專業資歷：**橫跨半導體、伺服器、系統整合與車用電子近三十年，曾任 Siemens、HP、Sun Microsystems、NXP、Advantech、DTS 大中華區總經理與高階經理人。
+- **認證：**ISO／IEC 42001（AI 管理系統）主導稽核員、ISO／IEC 27701（隱私資訊管理）主導稽核員、ISO／IEC 27001（資訊安全管理）主導稽核員、台灣個資管理制度（TPIPAS）專業人員（CPPP）。
+- **著作：**《企業 AI 與資料治理實戰：EU AI Act、GDPR、ISO 42001、ISO 27701 一次搞懂》（2026）。
+
 本專案聚焦可實際使用的本機優先照片隱私保護：人臉候選偵測、人工覆核與可匯出的遮蔽結果，不將照片送往服務端。
 
 ## 測試紀錄
