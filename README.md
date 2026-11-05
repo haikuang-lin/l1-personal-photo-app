@@ -92,3 +92,7 @@ Currently serving as Chief Information Security Officer for the Taiwan Personal 
 ## 測試紀錄
 
 請讀 [TEST_REPORT.md](TEST_REPORT.md)。它區分本次已實跑的本機瀏覽器測試、iOS 編譯檢查與尚未完成的 Windows、iOS／Android 實機、Safari、實機觸控拖曳、多臉／側臉等測試。
+
+另有 [20 張公開影像基線測試目標](TEST_PROTOCOL_20.md) 與
+[第一輪實測結果](TEST_RESULTS_20.md)。結果刻意區分 UI 自動候選框、人工真值與匯出驗證；
+尚未完成的人工標註或像素／EXIF 檢查不會標示為通過。
