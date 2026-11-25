@@ -20,7 +20,8 @@
       <section id="editor" class="editor" hidden>
         <div class="stage-card">
           <div class="stage-topline"><span id="imageName">照片</span><span id="detectionStatus" role="status">準備中…</span></div>
-          <div class="canvas-wrap"><canvas id="photoCanvas" aria-label="照片預覽與人臉標記"></canvas></div>
+          <div class="preview-tools" aria-label="照片檢視倍率"><span>檢視倍率（僅預覽）</span><div><button id="zoom100Button" class="secondary-button zoom-button active" type="button" aria-pressed="true">適合畫面</button><button id="zoom200Button" class="secondary-button zoom-button" type="button" aria-pressed="false">放大 2 倍</button></div></div>
+          <div id="canvasWrap" class="canvas-wrap"><canvas id="photoCanvas" aria-label="照片預覽與人臉標記"></canvas></div>
           <p class="stage-help">每張臉可選「保留」或「遮蔽」。需要額外遮蔽時，按「手動新增」後直接在照片上拖曳範圍。</p><p id="verificationStatus" class="verification" hidden></p>
         </div>
         <aside class="control-panel" aria-label="處理選項">
@@ -29,8 +30,10 @@
             <label class="field-label" for="emojiSelect">Emoji</label><select id="emojiSelect"><option value="😶">😶 中性臉</option><option value="🕶️">🕶️ 墨鏡</option><option value="😎">😎 酷臉</option><option value="🐱">🐱 貓臉</option><option value="🌼">🌼 花朵</option></select>
             <label class="field-label" for="blockColor">色塊顏色</label><input id="blockColor" type="color" value="#172033" />
             <label class="range-row" for="paddingRange"><span>遮蔽邊界</span><output id="paddingOutput">12%</output></label><input id="paddingRange" type="range" min="0" max="35" value="12" />
+            <div id="mosaicStrengthRow"><label class="range-row" for="mosaicStrengthRange"><span>馬賽克格子大小</span><output id="mosaicStrengthOutput">16%</output></label><input id="mosaicStrengthRange" type="range" min="10" max="30" value="16" /><p class="control-hint">格子越大，細節越少；重要文字請改用不透明色塊。</p></div>
           </div>
-          <div class="panel-section region-section"><div class="section-title"><h2>人臉與範圍</h2><button id="maskAllButton" class="text-button" type="button">全部遮蔽</button></div><button id="manualMaskButton" class="secondary-button wide" type="button" aria-pressed="false">手動新增遮蔽範圍</button><p id="noRegions" class="quiet" hidden>尚未找到人臉。可手動新增遮蔽範圍。</p><div id="regionList" class="region-list"></div></div>
+          <div class="panel-section region-section"><div class="section-title"><h2>人臉與範圍</h2><button id="maskAllButton" class="text-button" type="button">全部遮蔽</button></div><button id="manualMaskButton" class="secondary-button wide" type="button" aria-pressed="false">手動新增遮蔽範圍</button><button id="undoButton" class="secondary-button wide" type="button" disabled>復原上一個遮蔽編輯</button><p id="noRegions" class="quiet" hidden>尚未找到人臉。可手動新增遮蔽範圍。</p><div id="regionList" class="region-list"></div></div>
+          <div class="panel-section review-section"><h2>匯出前全圖檢查</h2><p class="control-hint">請放大並捲動檢視四角及整張照片，確認是否還有：</p><ul><li>未遮蔽的路人、兒童或側臉</li><li>車牌、門牌、名牌與制服</li><li>QR Code、條碼、文件文字與螢幕通知</li><li>鏡面、窗戶或眼鏡中的倒影</li></ul><label class="review-confirm"><input id="reviewConfirm" type="checkbox" />我已檢查全圖；知道自動偵測可能漏掉資訊</label></div>
           <div class="panel-section export-section"><h2>匯出與證據</h2><div class="export-row"><label for="formatSelect">格式</label><select id="formatSelect"><option value="image/jpeg">JPEG</option><option value="image/png">PNG</option></select></div><div id="jpegQualityRow" class="export-row"><label for="qualityRange">JPEG 品質</label><input id="qualityRange" type="range" min="70" max="100" value="92" /><output id="qualityOutput">92</output></div><button id="downloadButton" class="primary-button wide" type="button">下載並重新載入驗證</button><button id="reportButton" class="secondary-button wide" type="button" disabled>下載本機 JSON 證據報告</button><button id="newImageButton" class="secondary-button wide" type="button">換一張照片</button><button id="clearSessionButton" class="text-button clear-button" type="button">清除工作階段資料</button></div>
         </aside>
       </section>
